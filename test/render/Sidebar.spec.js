@@ -1,10 +1,9 @@
 import React from 'react';
-import addons from 'react/addons';
+import ReactDOM from 'react-dom';
+import TestUtils from 'react-addons-test-utils';
 import expect from 'expect';
 
 import Sidebar from '../../src/common/components/layout/Sidebar';
-
-const TestUtils = React.addons.TestUtils;
 
 describe('Sidebar Rending', function(){
 
@@ -13,7 +12,7 @@ describe('Sidebar Rending', function(){
 		dept : 'Web Team',
 		lastLogin : new Date(),
 		email : 'john@smith.com',
-		id : 'abcde1234' 
+		id : 'abcde1234'
 	};
 	const version = '0.0.1';
 
@@ -38,9 +37,9 @@ describe('Sidebar Rending', function(){
       'sidebar-nav-item'
     );
 
-    this.firstLink = this.linkArray[0].getDOMNode();
-    this.username = username.getDOMNode();
-    this.versionNumber = versionNumber.getDOMNode();
+    this.firstLink = ReactDOM.findDOMNode(this.linkArray[0]);
+    this.username = ReactDOM.findDOMNode(username);
+    this.versionNumber = ReactDOM.findDOMNode(versionNumber);
 
   });
 

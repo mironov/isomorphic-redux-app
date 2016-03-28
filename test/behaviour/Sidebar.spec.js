@@ -1,12 +1,10 @@
 import React from 'react';
-import addons from 'react/addons';
+import TestUtils from 'react-addons-test-utils';
 import expect from 'expect';
 
 import App from '../../src/common/containers/App';
 import { Provider } from 'react-redux';
 import configureStore from '../../src/common/store/configureStore';
-
-const TestUtils = React.addons.TestUtils;
 
 describe('Sidebar behaviour', function(){
 
@@ -15,9 +13,7 @@ describe('Sidebar behaviour', function(){
 
     const renderedComponent = TestUtils.renderIntoDocument(
       <Provider store={store}>
-        {()=>
     	   <App />
-        }
       </Provider>
     );
 

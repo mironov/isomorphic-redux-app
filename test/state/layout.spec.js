@@ -1,5 +1,4 @@
 import React from 'react';
-import addons from 'react/addons';
 import expect from 'expect';
 
 import * as LayoutActions from '../../src/common/actions/layout';
