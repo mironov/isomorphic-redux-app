@@ -4,15 +4,22 @@ import { reduxReactRouter } from 'redux-router';
 import thunk from 'redux-thunk';
 import createHistory from 'history/lib/createBrowserHistory';
 import createLogger from 'redux-logger';
+import { loadingBarMiddleware } from 'react-redux-loading-bar';
 import promiseMiddleware from '../api/promiseMiddleware';
 import rootReducer from '../reducers';
 
 const middlewareBuilder = () => {
 
   let middleware = {};
-  let universalMiddleware = [thunk,promiseMiddleware];
+  let universalMiddleware = [
+    thunk,
+    promiseMiddleware,
+    loadingBarMiddleware({
+      promiseTypeSuffixes: ['REQUEST', 'SUCCESS', 'FAILURE'],
+    }),
+  ];
   let allComposeElements = [];
-  
+
   if(process.browser){
     if(process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'test'){
       middleware = applyMiddleware(...universalMiddleware);

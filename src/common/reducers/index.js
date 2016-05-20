@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import { routerStateReducer } from 'redux-router';
 import undoable from 'redux-undo';
+import { loadingBarReducer } from 'react-redux-loading-bar';
 
 import user from './user';
 import counter from './counter';
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   todos : undoable(todos),
   selectedReddit : undoable(selectedReddit),
   postsByReddit : undoable(postsByReddit),
+  loadingBar : loadingBarReducer,
   router : routerStateReducer
 });
 

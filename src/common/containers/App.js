@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import classNames from 'classnames';
+import LoadingBar from 'react-redux-loading-bar';
 import * as UserActions from '../actions/user';
 import * as LayoutActions from '../actions/layout';
 import Home from '../components/Home'
@@ -41,6 +42,7 @@ class App extends Component {
 
     return (
       <div className={layoutClass}>
+        <LoadingBar />
         <Sidebar layout={layout} user={user} version={version} />
   	    <div className="wrap">
           <Header todos={todos} counter={counter} />
